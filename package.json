@@ -1,0 +1,21 @@
+{
+    "name": "form",
+    "aimee": "app",
+    "version": "1.0.0",
+    "description": "Aimeejs的form模块",
+    "main": "form.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Aimeejs/form.git"
+    },
+    "keywords": [
+        "form"
+    ],
+    "author": "gavinning",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/Aimeejs/form/issues"
+    },
+    "homepage": "https://github.com/Aimeejs/form",
+    "dependencies": {}
+}
