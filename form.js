@@ -19,11 +19,21 @@ app = App.create({
         var template = {};
         var data = app.getData();
         template.text = require('./text.jade');
+        template.button = require('./button.jade');
+        template.password = require('./password.jade');
         template.textarea = require('./textarea.jade');
         // 根据配置生成DOM
         data.layers.forEach(function(item){
             template[item.type] && app.append(template[item.type](item));
         })
+    },
+
+    getFormData: function(){
+        var data = {};
+        this.find('.dataInput').each(function(el){
+            data[this.name] = this.value;
+        })
+        return data;
     }
 });
 

@@ -8,27 +8,99 @@ aimee i form
 
 #### Example
 ```javascript
+this.exports('form')
+```
+
+#### Example
+```javascript
 this.exports('form', {
     layers: [
         {
             type: 'text',
-            title: '问题',
+            title: '用户名',
             required: true,
-            placeholder: '请填写要提问的问题'
+            name: 'username',
+            placeholder: '请输入用户名'
         },
         {
-            type: 'textarea',
-            title: '问题描述',
-            placeholder: '请填写详细的问题描述'
+            type: 'password',
+            title: '密码',
+            required: true,
+            name: 'password',
+            placeholder: '请输入密码'
+        },
+        {
+            type: 'password',
+            title: '确认密码',
+            required: true,
+            name: 'cpassword',
+            placeholder: '请再次输入密码'
         },
         {
             type: 'text',
-            title: '联系电话',
-            placeholder: '请填写您的联系方式'
+            required: true,
+            title: '邮箱地址',
+            name: 'email',
+            placeholder: '请输入邮箱地址'
+        },
+        {
+            type: 'button',
+            title: '注册',
+            btnType: 'submit'
         }
     ]
 })
 ```
 
+#### Example
+```javascript
+this.exports('form', function(app){
+    app.init().render()
+})
+```
+
+#### Example
+```javascript
+this.exports('form', function(app){
+    app.init({
+        layers: [
+            {
+                type: 'text',
+                title: '用户名',
+                required: true,
+                name: 'username',
+                placeholder: '请输入用户名'
+            },
+            {
+                type: 'password',
+                title: '密码',
+                required: true,
+                name: 'password',
+                placeholder: '请输入密码'
+            },
+            {
+                type: 'password',
+                title: '确认密码',
+                required: true,
+                name: 'cpassword',
+                placeholder: '请再次输入密码'
+            },
+            {
+                type: 'text',
+                required: true,
+                title: '邮箱地址',
+                name: 'email',
+                placeholder: '请输入邮箱地址'
+            },
+            {
+                type: 'button',
+                title: '注册',
+                btnType: 'submit'
+            }
+        ]
+    }).render()
+})
+```
+
 #### Preview
-<img src="preview.png" alt="" width="414">
+<img class="shadow" src="preview.png" alt="" width="414">

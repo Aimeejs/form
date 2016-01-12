@@ -15,7 +15,6 @@
 
     .input-text, .textarea{
         display: block;
-        border: none;
         border-radius: 2px;
         font-size: 0.14rem;
         background: #fff;
@@ -23,6 +22,7 @@
         .box-sizing();
         outline: none;
         resize: none;
+        border: 1px solid #ddd;
     }
 
     .input-text{
@@ -39,5 +39,17 @@
     .irequired{
         color: #E35760;
         margin-left: 0.04rem;
+    }
+
+    .btn{
+        display: block;
+        width: 100%;
+        padding: 0 12px;
+        height: 40px;
+        background: @blue;
+        color: #fff;
+        border: none;
+        font-size: 14px;
+        margin-top: 20px;
     }
 }
