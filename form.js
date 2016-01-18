@@ -18,10 +18,10 @@ app = App.create({
         var layer;
         var template = {};
         var data = app.getData();
-        template.text = require('./text.jade');
-        template.button = require('./button.jade');
-        template.password = require('./password.jade');
-        template.textarea = require('./textarea.jade');
+        template.text = require('./templates/text.jade');
+        template.button = require('./templates/button.jade');
+        template.password = require('./templates/password.jade');
+        template.textarea = require('./templates/textarea.jade');
         // 根据配置生成DOM
         data.layers.forEach(function(item){
             template[item.type] && app.append(template[item.type](item));
