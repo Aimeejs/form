@@ -1,5 +1,6 @@
 .lincoapp-form{
     padding: 0.12rem;
+    background: #fff;
 
     .layer{
         display: block;
@@ -9,47 +10,37 @@
     .title{
         font-size: 0.15rem;
         color: black;
-        display: block;
         line-height: 2;
-    }
-
-    .input-text, .textarea{
-        display: block;
-        border-radius: 2px;
-        font-size: 0.14rem;
-        background: #fff;
-        width: 100%;
-        .box-sizing();
-        outline: none;
-        resize: none;
-        border: 1px solid #ddd;
-    }
-
-    .input-text{
-        height: 0.36rem;
-        line-height: 0.36rem;
-        padding: 0 0.08rem;
-    }
-
-    .textarea{
-        height: 0.7rem;
-        padding: 0.08rem;
+        .box();
+        .box-pack(justify);
+        .box-align(center);
     }
 
     .irequired{
         color: #E35760;
         margin-left: 0.04rem;
     }
+}
 
-    .btn{
-        display: block;
-        width: 100%;
-        padding: 0 12px;
-        height: 40px;
-        background: @blue;
-        color: #fff;
-        border: none;
-        font-size: 14px;
-        margin-top: 20px;
-    }
+.ui-form-input, .ui-form-textarea{
+    display: block;
+    border-radius: 2px;
+    font-size: 0.14rem;
+    background: #fff;
+    width: 100%;
+    .box-sizing();
+    outline: none;
+    resize: none;
+    border: 1px solid #ddd;
+}
+
+.ui-form-input{
+    height: 0.36rem;
+    line-height: 0.36rem;
+    padding: 0 0.08rem;
+}
+
+.ui-form-textarea{
+    height: 0.7rem;
+    padding: 0.08rem;
 }

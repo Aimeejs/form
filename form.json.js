@@ -6,17 +6,18 @@
  * Date: 2015-11-25
  */
 
-
 module.exports = {
     layers: [
         {
+            form: 'input',
             type: 'text',
-            title: '用户名',
-            required: true,
             name: 'username',
-            placeholder: '请输入用户名'
+            placeholder: '请输入用户名',
+            title: '用户名',
+            required: true
         },
         {
+            form: 'input',
             type: 'password',
             title: '密码',
             required: true,
@@ -24,6 +25,7 @@ module.exports = {
             placeholder: '请输入密码'
         },
         {
+            form: 'input',
             type: 'password',
             title: '确认密码',
             required: true,
@@ -31,6 +33,7 @@ module.exports = {
             placeholder: '请再次输入密码'
         },
         {
+            form: 'input',
             type: 'text',
             required: true,
             title: '邮箱地址',
@@ -38,9 +41,29 @@ module.exports = {
             placeholder: '请输入邮箱地址'
         },
         {
-            type: 'button',
-            title: '注册',
-            btnType: 'submit'
+            form: 'slide',
+            title: '自动登录',
+            action: true,
+            inline: true,
+            animate: true,
+            selected: true,
+            name: 'autologin'
+        },
+        {
+            form: 'textarea',
+            name: 'sign',
+            placeholder: '个性签名'
+        },
+        {
+            form: 'tag',
+            name: 'tag',
+            title: '标签云'
+        },
+        {
+            form: 'button',
+            value: '注册',
+            type: 'submit',
+            className: 'long mt'
         }
     ]
 }
