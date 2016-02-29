@@ -29,6 +29,8 @@ this.exports('form', function(app){
 var Form = require('form');
 var form = Form.instance();
 
+form.init().render();
+
 // 不执行默认事件
 thisPage.append(form.app.slide({animate: true}))
 // Or 执行默认事件
