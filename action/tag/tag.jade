@@ -1,3 +1,3 @@
-.ui-form-tag
-    include ../input/input.jade
-    .tags
+.tags
+    each value, key in map
+        i.tag(data-type= key)= value

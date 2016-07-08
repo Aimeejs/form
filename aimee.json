@@ -1,6 +1,6 @@
 {
     "name": "form",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "description": "Aimeejs的form模块",
     "main": "form.js",
     "repository": {
@@ -16,5 +16,7 @@
         "url": "https://github.com/Aimeejs/form/issues"
     },
     "homepage": "https://github.com/Aimeejs/form",
-    "dependencies": {}
+    "dependencies": {
+        "config": "^1.2.0"
+    }
 }

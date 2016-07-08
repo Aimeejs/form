@@ -1,4 +1,4 @@
-.ui-form-select
-    select
-        each item in options
-            option= item.value
+if(!options.value)
+    option(value="")= options.alias
+each item in list
+    option(value= item.value)= item.alias
