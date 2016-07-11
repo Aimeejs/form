@@ -30,7 +30,27 @@ export default {
     },
 
     input(e) {
-        e.keyCode !== 13 || this.add(this.parseValue(e.target.value))
+        // For Enter
+        if(e.keyCode === 13){
+            // 添加tag项
+            this.add(this.parseValue(e.target.value));
+
+            // 输入后选中当前文本
+            if(this.parent._config.autoclear === 'select'){
+                return e.target.select();
+            }
+
+            // 输入后当前文本 => Placeholder
+            if(this.parent._config.autoclear === 'placeholder'){
+                e.target.placeholder = e.target.value;
+                return e.target.value = '';
+            }
+
+            // 输入后清空当前文本
+            if(this.parent._config.autoclear){
+                return e.target.value = '';
+            }
+        }
     },
 
     add(data) {
@@ -39,6 +59,10 @@ export default {
 
     hide(e, menu) {
         menu.hide().parent().removeClass('open');
+    },
+
+    blur(e) {
+        e.target.placeholder = this.parent.attributes.placeholder || '';
     },
 
     parseValue(val) {

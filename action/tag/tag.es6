@@ -18,7 +18,8 @@ class Input extends App{
             more: false,      // 多项选择 依赖selected
             input: false,     // 可输入
             deleted: false,   // 可删除 不可与selected共存
-            selected: true   // 可选择
+            selected: true,   // 可选择
+            autoclear: 'placeholder'   // 输入成功后自动选中之前输入数据，方便清除 (select | placeholder)
         };
         this.config.init(this._config);
     }
@@ -41,8 +42,12 @@ class Input extends App{
 
     input() {
         if(this._config.input){
-            this.$.find('.tags').before(aimee.create('input.area.form-control[type="text"]'));
-            this.$.delegate('input.area', 'keypress', (e) => handler.input(e));
+            this.$.find('.tags').before(
+                aimee.$('input[type="text"]')
+                    .addClass('area form-control')
+                    .attr('placeholder', this.attributes.placeholder)
+                    .on('keypress', (e) => handler.input(e))
+            )
         }
     }
 
@@ -50,6 +55,7 @@ class Input extends App{
         this.input();
         this.$.delegate('.tag', 'click', (e) => handler.selected(e));
         this.$.delegate('.tag', 'dblclick', (e) => handler.deleted(e));
+        this.$.delegate('.area', 'blur', (e) => handler.blur(e));
         return this;
     }
 

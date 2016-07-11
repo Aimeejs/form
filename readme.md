@@ -27,13 +27,10 @@ aimee i form
 ```javascript
 var Form = require('form');
 var form = new Form;
-```
 
-### Example
-```js
 form.load('input').attr({name: 'username'})
 form.load('input').attr({name: 'password', type: 'password'})
-form.load('input').attr({name: 'telphone', type: 'number'})
+form.load('input').attr({name: 'telphone', type: 'number', placeholder: '请输入手机号'})
 form.load('textarea').attr({name: 'remark'})
 
 // Form控件渲染到.form

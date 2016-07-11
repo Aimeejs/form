@@ -1,4 +1,5 @@
 .lincoapp-form{
+    font-size: 14px;
 
     .area{
         width: 100%;
@@ -111,6 +112,43 @@
             text-align: center;
             cursor: default;
             -webkit-user-select: none;
+        }
+    }
+
+    .form-ui-slide{
+        display: block;
+        width: 60px;
+        height: 20px;
+        padding: 1px;
+        padding-right: 24px;
+        border-radius: 1px;
+        background: #d4d4d4;
+        overflow: hidden;
+        .box-sizing();
+
+        .slideBtn{
+            display: block;
+            min-width: 36px;
+            padding: 0 4px;
+            font-size: 12px;
+            height: 100%;
+            line-height: 18px;
+            border-radius: 1px;
+            background: #fff;
+        }
+
+        &.selected{
+            background: #1b95fb;
+            padding-left: 23px;
+            padding-right: 1px;
+
+            .slideBtn{
+                color: #1b95fb;
+            }
+        }
+
+        &.animate{
+            transition: all 150ms ease;
         }
     }
 
