@@ -1,6 +1,6 @@
 {
     "name": "form",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Aimeejs的form模块",
     "main": "form.js",
     "repository": {

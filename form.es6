@@ -15,7 +15,9 @@
  * 		form.group('user').load('input').attr({name: 'password'}).render();
  *
  */
-import config from 'config';
+
+import Config from 'config';
+let config = new Config;
 config.init();
 
 class Form{

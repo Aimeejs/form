@@ -10,6 +10,9 @@ class Input extends App{
         this.$ = aimee.$('.form-ui-slide>button.slideBtn')
         this.dom = this.$.get(0);
         this.attr({guid: this.guid});
+        this.CONFIG.merge({
+            animate: true
+        });
     }
 
     action() {
@@ -19,12 +22,12 @@ class Input extends App{
 
         this.data = this.data || {}
 
-        if(this.data.animate){
-            this.addClass('animate');
+        if(this.CONFIG.get('animate')){
+            this.$.addClass('animate');
         }
 
-        if(this.data.selected){
-            this.addClass('selected')
+        if(this.CONFIG.get('selected')){
+            this.$.addClass('selected')
         }
 
         return this;

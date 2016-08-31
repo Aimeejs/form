@@ -8,7 +8,7 @@ class Input extends App{
         this.guid = guid();
         this.name = 'select';
         this.template = require('select.jade');
-        this.attr({type: 'text', class: 'select', guid: this.guid});
+        this.attr({type: 'text', class: 'select form-item', guid: this.guid});
     }
 
     // SELECT渲染时所需数据

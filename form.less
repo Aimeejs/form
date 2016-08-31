@@ -1,14 +1,81 @@
 .lincoapp-form{
+    @red:      #a94542;
+    @gray:     #cccccc;
+    @blue:     #0e8dfd;
+    @green:    #3a783c;
+    @highlight:#4198e4;
+
     font-size: 14px;
 
-    .area{
+    .form-title{
+        display: block;
+        line-height: 2.3;
+    }
+
+    .form-group{
+        margin-bottom: 6px;
+    }
+
+    .form-item,
+    .form-area{
         width: 100%;
-        border: 1px solid #ddd;
-        padding: 4px 6px;
+        font-size: 14px;
+        padding: 0 8px;
         border-radius: 2px;
         box-sizing: border-box;
+        border: 1px solid #cccccc;
         resize: none;
         outline: 0;
+
+        &.error{
+            border-color: @red;
+        }
+
+        &.success{
+            border-color: @green;
+        }
+
+        &:focus{
+            border-color: @highlight;
+        }
+    }
+
+    .form-item{
+        height: 34px;
+    }
+
+    .form-area{
+        height: 90px;
+        padding: 6px 8px;
+    }
+
+    .form-btn{
+        height: 36px;
+        line-height: 36px;
+        font-size: 16px;
+        border-radius: 3px;
+        padding: 0 20px;
+
+        &.skin-red{
+            color: #fff;
+            background-color: @red;
+        }
+
+        &.skin-blue{
+            color: #fff;
+            background-color: @blue;
+        }
+
+        &.skin-green{
+            color: #fff;
+            background-color: @green;
+        }
+
+        &.skin-full{
+            display: block;
+            width: 100%;
+            .box-sizing();
+        }
     }
 
     .caret{
@@ -25,10 +92,6 @@
         border-top: 4px solid \9;
         border-right: 4px solid transparent;
         border-left: 4px solid transparent;
-    }
-
-    .form-group{
-        margin-bottom: 10px;
     }
 
     // 下拉菜单

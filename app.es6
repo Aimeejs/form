@@ -7,7 +7,7 @@
  * 所有表单控件的基础类，所有表单控件应该继承此类
  *
  */
-import config from 'config';
+import Config from 'config';
 
 class App{
 
@@ -19,7 +19,8 @@ class App{
         this.dom = this.create(this.tagName);
         this.$ = $(this.dom);
         this.extend = require('extend');
-        this.config = new config.Config;
+        this.CONFIG = new Config;
+        this.CONFIG.init();
     }
 
     /**
@@ -46,8 +47,12 @@ class App{
      * @example this.setting({css: true})
      */
     setting(config) {
-        this.config.merge(config);
+        this.CONFIG.merge(config);
         return this;
+    }
+
+    config() {
+        return this.CONFIG.general.apply(this.CONFIG, arguments) || this;
     }
 
     /**

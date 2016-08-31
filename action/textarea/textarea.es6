@@ -7,7 +7,7 @@ class Input extends App{
         super('textarea');
         this.guid = guid();
         // 初始化
-        this.attr({class: 'area', guid: this.guid});
+        this.attr({class: 'form-area', guid: this.guid});
     }
 
     reset() {

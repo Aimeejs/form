@@ -7,7 +7,7 @@ class Input extends App{
         super('input');
         this.guid = guid();
         // 初始化
-        this.attr({type: 'text', class: 'area form-control', guid: this.guid});
+        this.attr({type: 'text', class: 'form-item form-control', guid: this.guid});
     }
 
     reset() {
