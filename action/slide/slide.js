@@ -7,7 +7,7 @@ class Input extends App{
         super();
         this.guid = guid();
         this.name = 'slide';
-        this.$ = aimee.$('.form-ui-slide>button.slideBtn')
+        this.$dom = aimee.$('.form-ui-slide>button.slideBtn')
         this.dom = this.$dom.get(0);
         this.attr({guid: this.guid});
         this.CONFIG.merge({

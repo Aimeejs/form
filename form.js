@@ -64,7 +64,7 @@ class Form{
         var isFull = typeof full === 'boolean' ? full : true;
 
         // 获取独立表单数据
-        this.apps.forEach((app) => {
+        this.all.forEach(app => {
             var res;
             // Update attributes.name
             app.attr('name');
@@ -83,19 +83,14 @@ class Form{
     }
 
     // 根据app的name字段来查找占位符进行渲染
-    render(selector, options) {
-        config.merge(options);
+    render(selector) {
         selector = selector || document;
-        this.all.forEach((app) => {
+        this.all.forEach(app => {
             // 建立appMap
             this.map[app.attributes.name] = app;
             // 渲染表单控件
-            $(selector).find(`[name=${app.attributes.name}]`).replaceWith(app.$);
+            $(selector).find(`[name=${app.attributes.name}]`).replaceWith(app.$dom);
         });
-        // 加载默认样式
-        if(config.get('css')){
-            $(selector).addClass('lincoapp-form');
-        };
         return this;
     }
 

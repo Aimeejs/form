@@ -49,7 +49,7 @@ class Input extends App{
         this.dom.selectedIndex = index;
 
         // 缓存重要子元素
-        this.SELECT = this.$;
+        this.SELECT = this.$dom;
 
         return this;
     }

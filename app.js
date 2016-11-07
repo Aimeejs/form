@@ -10,7 +10,7 @@
 
 import tree from 'tree';
 import Config from 'config';
-import extend from 'aimee-extend';
+import extend from 'extend';
 
 class App{
 
