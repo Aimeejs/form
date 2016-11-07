@@ -7,7 +7,10 @@
  * 所有表单控件的基础类，所有表单控件应该继承此类
  *
  */
+
+import tree from 'tree';
 import Config from 'config';
+import extend from 'aimee-extend';
 
 class App{
 
@@ -15,30 +18,20 @@ class App{
     // 创建基础dom
     constructor(tagName) {
         this.attributes = {};
-        this.tagName = tagName || 'div';
-        this.dom = this.create(this.tagName);
-        this.$ = $(this.dom);
-        this.extend = require('extend');
+        this.extend = extend;
         this.CONFIG = new Config;
         this.CONFIG.init();
-    }
-
-    /**
-     * 创建dom方法 ** 不建议重写
-     * @param   {String}  el tagName
-     * @return  {Node}       Node节点
-     * @example this.create('input')
-     */
-    create(el) {
-        return document.createElement(el)
+        this.tagName = tagName || 'div';
+        this.dom = document.createElement(this.tagName);
+        this.$dom = $(this.dom);
     }
 
     show() {
-        this.$.show()
+        this.$dom.show()
     }
 
     hide() {
-        this.$.hide()
+        this.$dom.hide()
     }
 
     /**
@@ -68,17 +61,17 @@ class App{
         if(typeof key === 'string'){
             // VALUE为真是赋值
             if(value){
-                this.$.attr(key, value);
+                this.$dom.attr(key, value);
                 this.attributes[key] = value;
                 return this;
             }
             else{
-                this.attributes[key] = this.$.attr(key);
+                this.attributes[key] = this.$dom.attr(key);
                 return this.attributes[key];
             }
         }
         else if(typeof key === 'object'){
-            this.$.attr(key);
+            this.$dom.attr(key);
             $.extend(this.attributes, key);
             return this;
         }
@@ -89,7 +82,7 @@ class App{
      * @param   {Selector}  selector string|zepto|jquery
      */
     appendTo(selector) {
-        this.$.appendTo(selector);
+        this.$dom.appendTo(selector);
         return this;
     }
 
@@ -98,7 +91,7 @@ class App{
      * @param   {Selector}  selector string|zepto|jquery
      */
     prependTo(selector) {
-        this.$.prependTo(selector);
+        this.$dom.prependTo(selector);
         return this;
     }
 
@@ -110,20 +103,20 @@ class App{
     //! 建议重写，重置为初试状态
     reset() {
         this.tagName === 'input' || this.tagName === 'textarea' ?
-            this.$.val('') : this.$.text('')
+            this.$dom.val('') : this.$dom.text('')
         return this;
     }
 
     //! 建议重写，获取数据方法
     getData() {
         return this.tagName === 'input' || this.tagName === 'textarea' ?
-            this.$.val() : this.$.text()
+            this.$dom.val() : this.$dom.text()
     }
 
     //! 建议重写，设置数据
     setData(data) {
         this.tagName === 'input' || this.tagName === 'textarea' ?
-            this.$.val(data) : this.$.text(data)
+            this.$dom.val(data) : this.$dom.text(data)
     }
 
     //! 建议重写，自定义执行方法
@@ -131,32 +124,32 @@ class App{
         if(this.disabled){
             return this;
         }
-        this.$.on('input', () => this.onChange());
+        this.$dom.on('input', () => this.onChange());
         return this;
     }
 
     // 禁用表单控件，可根据需要重写
     disable() {
         this.disabled = true;
-        this.$.attr('disabled', 'disabled').addClass('disabled');
+        this.$dom.attr('disabled', 'disabled').addClass('disabled');
         return this;
     }
 
     // 启用表单控件，可根据需要重写
     enable() {
         this.disabled = false;
-        this.$.removeAttr('disabled').removeClass('disabled');
+        this.$dom.removeAttr('disabled').removeClass('disabled');
         return this;
     }
 
     // 表单控件根据data渲染dom的处理方法，如果有需要可重写此方法
-    render(data) {
+    create(data) {
         return this;
     }
 
     // 无需重写，所有表单控件app数据改变都需要调用此方法
     onChange() {
-        this.parent.dataChange(this);
+        tree.fire('form.data', this)
         return this;
     }
 }

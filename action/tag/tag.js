@@ -24,25 +24,25 @@ class Input extends App{
         this.config.init(this._config);
     }
 
-    render(map) {
-        this.$.append(this.template({map: map}))
+    create(map) {
+        this.$dom.append(this.template({map: map}))
         return this
     }
 
     getData() {
         return !this._config.selected ?
             // !Selected
-            this.$.find('.tag').map((i, tag) => tag.innerText):
+            this.$dom.find('.tag').map((i, tag) => tag.innerText):
             // Selected && More
             this._config.more ?
-                this.$.find('.tag.selected').map((i, tag) => tag.innerText):
+                this.$dom.find('.tag.selected').map((i, tag) => tag.innerText):
                 // Selected && !More
-                this.$.find('.tag.selected').eq(0).text();
+                this.$dom.find('.tag.selected').eq(0).text();
     }
 
     input() {
         if(this._config.input){
-            this.$.find('.tags').before(
+            this.$dom.find('.tags').before(
                 aimee.$('input[type="text"]')
                     .addClass('area form-control')
                     .attr('placeholder', this.attributes.placeholder)
@@ -53,14 +53,14 @@ class Input extends App{
 
     action() {
         this.input();
-        this.$.delegate('.tag', 'click', (e) => handler.selected(e));
-        this.$.delegate('.tag', 'dblclick', (e) => handler.deleted(e));
-        this.$.delegate('.area', 'blur', (e) => handler.blur(e));
+        this.$dom.delegate('.tag', 'click', (e) => handler.selected(e));
+        this.$dom.delegate('.tag', 'dblclick', (e) => handler.deleted(e));
+        this.$dom.delegate('.area', 'blur', (e) => handler.blur(e));
         return this;
     }
 
     reset() {
-        this.$.val('');
+        this.$dom.val('');
         return this;
     }
 }

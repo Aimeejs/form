@@ -12,7 +12,7 @@ class Input extends App{
     }
 
     // SELECT渲染时所需数据
-    render(map) {
+    create(map) {
         var prop, data, defaultItem, index;
 
         // 缓存data
@@ -43,7 +43,7 @@ class Input extends App{
         index = index >= 0 ? index : 0;
 
         // 渲染SELECT
-        this.$.append(this.template({list: data, options: defaultItem}));
+        this.$dom.append(this.template({list: data, options: defaultItem}));
 
         // Set Select SelectedIndex
         this.dom.selectedIndex = index;

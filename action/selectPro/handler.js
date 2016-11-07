@@ -38,9 +38,9 @@ export default {
             // MENU Opened
             this.opened &&
             // Target !== This
-            e.target !== this.$.get(0) &&
+            e.target !== this.$dom.get(0) &&
             // Target !== This.chilren
-            $(e.target).parents().index(this.$.get(0)) < 0
+            $(e.target).parents().index(this.$dom.get(0)) < 0
         ){
             // Hide Menu
             this.TOGGLE.trigger('click')

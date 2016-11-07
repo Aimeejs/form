@@ -14,7 +14,7 @@ class Input extends App{
     }
 
     // SELECT渲染时所需数据
-    render(map) {
+    create(map) {
         var prop, data, defaultItem;
 
         // 缓存data
@@ -40,12 +40,12 @@ class Input extends App{
         }
 
         // 渲染SELECT
-        this.$.append(this.template({list: data, options: defaultItem}));
+        this.$dom.append(this.template({list: data, options: defaultItem}));
 
         // 缓存重要子元素
-        this.MENU = this.$.find('.dropdown-menu');
-        this.TOGGLE = this.$.find('.dropdown-toggle');
-        this.OPTION = this.$.find('.dropdown-option');
+        this.MENU = this.$dom.find('.dropdown-menu');
+        this.TOGGLE = this.$dom.find('.dropdown-toggle');
+        this.OPTION = this.$dom.find('.dropdown-option');
 
         return this;
     }

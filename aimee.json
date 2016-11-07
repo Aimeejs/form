@@ -17,6 +17,7 @@
     },
     "homepage": "https://github.com/Aimeejs/form",
     "dependencies": {
-        "config": "^1.2.0"
+        "tree": "^1.0.0",
+        "aimee-extend": "^1.0.0"
     }
 }

@@ -3,15 +3,15 @@ import guid from 'guid';
 
 class Input extends App{
 
-    constructor(tagName) {
-        super('textarea');
+    constructor() {
+        super('input');
         this.guid = guid();
         // 初始化
-        this.attr({class: 'form-area', guid: this.guid});
+        this.attr({type: 'text', class: 'form-item form-control', guid: this.guid});
     }
 
     reset() {
-        this.$.val('');
+        this.$dom.val('');
         return this;
     }
 }

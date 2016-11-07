@@ -8,7 +8,7 @@ class Input extends App{
         this.guid = guid();
         this.name = 'slide';
         this.$ = aimee.$('.form-ui-slide>button.slideBtn')
-        this.dom = this.$.get(0);
+        this.dom = this.$dom.get(0);
         this.attr({guid: this.guid});
         this.CONFIG.merge({
             animate: true
@@ -16,39 +16,39 @@ class Input extends App{
     }
 
     action() {
-        this.$.on('click', function(){
+        this.$dom.on('click', function(){
             $(this).toggleClass('selected')
         })
 
         this.data = this.data || {}
 
         if(this.CONFIG.get('animate')){
-            this.$.addClass('animate');
+            this.$dom.addClass('animate');
         }
 
         if(this.CONFIG.get('selected')){
-            this.$.addClass('selected')
+            this.$dom.addClass('selected')
         }
 
         return this;
     }
 
-    render(data) {
-        this.$.find('.slideBtn').text(data.value || data);
+    create(data) {
+        this.$dom.find('.slideBtn').text(data.value || data);
         return this;
     }
 
     getData() {
-        return this.$.hasClass('selected') ? true : false;
+        return this.$dom.hasClass('selected') ? true : false;
     }
 
     onChange() {
-        this.$.on('input', () => { this.parent.dataChange(this) });
+        this.$dom.on('input', () => { this.parent.dataChange(this) });
         return this;
     }
 
     reset() {
-        this.$.removeClass('selected');
+        this.$dom.removeClass('selected');
         return this;
     }
 }
